@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jon Liu — Photography</title>
+<style>
+  :root {
+    --ink: #111111;
+    --paper: #ffffff;
+    --line: #dcdcdc;
+    --muted: #8a8a8a;
+    --gap: 24px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Header ---------- */
+
+  header {
+    padding: 64px 32px 0 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1.name {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px 0;
+  }
+
+  .tagline {
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+  }
+
+  /* ---------- Tabs ---------- */
+
+  nav.tabs {
+    display: flex;
+    gap: 32px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+
+  nav.tabs button {
+    appearance: none;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 0 16px 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  nav.tabs button:hover {
+    color: var(--ink);
+  }
+
+  nav.tabs button.active {
+    color: var(--ink);
+  }
+
+  .tab-indicator {
+    position: absolute;
+    bottom: -1px;
+    height: 2px;
+    background: var(--ink);
+    transition: left 0.3s cubic-bezier(0.65, 0, 0.35, 1), width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  /* ---------- Main / Views ---------- */
+
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px 100px 32px;
+  }
+
+  .view { display: none; }
+  .view.active { display: block; animation: fade 0.4s ease; }
+
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- Portfolio: masonry via CSS columns ---------- */
+
+  .gallery {
+    column-count: 3;
+    column-gap: var(--gap);
+  }
+
+  .gallery figure {
+    margin: 0 0 var(--gap) 0;
+    break-inside: avoid;
+    overflow: hidden;
+  }
+
+  .gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+  .gallery figure:hover img {
+    transform: scale(1.015);
+  }
+
+  @media (max-width: 900px) {
+    .gallery { column-count: 2; }
+  }
+
+  @media (max-width: 560px) {
+    .gallery { column-count: 1; }
+    header { padding-top: 40px; }
+  }
+
+  /* ---------- About ---------- */
+
+  .about {
+    max-width: 640px;
+  }
+
+  .about p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #333;
+    margin: 0 0 20px 0;
+  }
+
+  .about h2 {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 40px 0 12px 0;
+  }
+
+  .about ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.9;
+  }
+
+  .about a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .about a:hover {
+    border-bottom-color: var(--ink);
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px 48px 32px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="name">Jon Liu</h1>
+  <p class="tagline">Photography</p>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="portfolio">Portfolio</button>
+    <button class="tab-btn" data-tab="about">About</button>
+    <span class="tab-indicator" id="tab-indicator"></span>
+  </nav>
+</header>
+
+<main>
+
+  <!-- PORTFOLIO -->
+  <section class="view active" id="portfolio">
+    <div class="gallery">
+      <figure><img src="portfolio 1.jpg" alt="Portfolio image 1" loading="lazy"></figure>
+      <figure><img src="portfolio 2.jpg" alt="Portfolio image 2" loading="lazy"></figure>
+      <figure><img src="portfolio 3.jpg" alt="Portfolio image 3" loading="lazy"></figure>
+      <figure><img src="portfolio 4.jpg" alt="Portfolio image 4" loading="lazy"></figure>
+      <figure><img src="portfolio 5.jpg" alt="Portfolio image 5" loading="lazy"></figure>
+      <figure><img src="portfolio 6.jpg" alt="Portfolio image 6" loading="lazy"></figure>
+      <figure><img src="portfolio 7.jpg" alt="Portfolio image 7" loading="lazy"></figure>
+      <figure><img src="portfolio 8.jpg" alt="Portfolio image 8" loading="lazy"></figure>
+      <figure><img src="portfolio 9.jpg" alt="Portfolio image 9" loading="lazy"></figure>
+      <figure><img src="portfolio 10.jpg" alt="Portfolio image 10" loading="lazy"></figure>
+      <figure><img src="portfolio 11.jpg" alt="Portfolio image 11" loading="lazy"></figure>
+      <figure><img src="portfolio 12.jpg" alt="Portfolio image 12" loading="lazy"></figure>
+      <figure><img src="portfolio 13.jpg" alt="Portfolio image 13" loading="lazy"></figure>
+      <figure><img src="portfolio 14.jpg" alt="Portfolio image 14" loading="lazy"></figure>
+      <figure><img src="portfolio 15.jpg" alt="Portfolio image 15" loading="lazy"></figure>
+      <figure><img src="portfolio 16.jpg" alt="Portfolio image 16" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="view" id="about">
+    <div class="about">
+      <p>
+        Jon Liu is a photographer based in [City], focused on [landscape / street / portrait —
+        edit this to describe your work]. His work has been shaped by [a sentence or two about
+        background, influences, or approach].
+      </p>
+      <p>
+        Replace this paragraph with a short biography — a few sentences on how you got started,
+        what you shoot, and what draws you to it. Keep it conversational; two short paragraphs
+        is usually plenty.
+      </p>
+
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:you@example.com">you@example.com</a></li>
+        <li><a href="https://instagram.com/yourhandle">Instagram</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Jon Liu
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const views = document.querySelectorAll('.view');
+  const indicator = document.getElementById('tab-indicator');
+
+  function moveIndicator(btn) {
+    indicator.style.left = btn.offsetLeft + 'px';
+    indicator.style.width = btn.offsetWidth + 'px';
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      views.forEach(v => v.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      moveIndicator(btn);
+    });
+  });
+
+  // Initialize indicator position on load
+  window.addEventListener('load', () => moveIndicator(document.querySelector('.tab-btn.active')));
+  window.addEventListener('resize', () => moveIndicator(document.querySelector('.tab-btn.active')));
+</script>
+
+</body>
+</html>
