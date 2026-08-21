@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Jon Liu — Photography</title>
+<title>JON LIU — PHOTOGRAPHY</title>
 <style>
   @font-face {
     font-family: "Cheltenham Condensed";
@@ -35,7 +35,11 @@
   /* ---------- Header ---------- */
 
   header {
-    padding: 64px 40px 0 40px;
+    background: var(--ink);
+    padding: 56px 40px 0 40px;
+  }
+
+  .header-inner {
     max-width: 1800px;
     margin: 0 auto;
     text-align: center;
@@ -44,6 +48,8 @@
   h1.name {
     font-family: "Cheltenham Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
+    text-transform: uppercase;
+    color: var(--paper);
     font-size: clamp(28px, 5vw, 44px);
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -54,7 +60,7 @@
     font-family: "Cheltenham Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
     font-size: 14px;
-    color: var(--muted);
+    color: #aaaaaa;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     margin: 0 0 40px 0;
@@ -66,8 +72,8 @@
     display: flex;
     justify-content: center;
     gap: 32px;
-    border-bottom: 1px solid var(--line);
     position: relative;
+    padding-bottom: 32px;
   }
 
   nav.tabs button {
@@ -79,25 +85,25 @@
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: #999999;
     padding: 0 0 16px 0;
     cursor: pointer;
     transition: color 0.2s ease;
   }
 
   nav.tabs button:hover {
-    color: var(--ink);
+    color: var(--paper);
   }
 
   nav.tabs button.active {
-    color: var(--ink);
+    color: var(--paper);
   }
 
   .tab-indicator {
     position: absolute;
-    bottom: -1px;
+    bottom: 16px;
     height: 2px;
-    background: var(--ink);
+    background: var(--paper);
     transition: left 0.3s cubic-bezier(0.65, 0, 0.35, 1), width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
   }
 
@@ -207,14 +213,16 @@
 <body>
 
 <header>
-  <h1 class="name">JON LIU</h1>
-  <p class="tagline">PHOTOGRAPHY</p>
+  <div class="header-inner">
+    <h1 class="name">Jon Liu</h1>
+    <p class="tagline">Photography</p>
 
-  <nav class="tabs" id="tabs">
-    <button class="tab-btn active" data-tab="portfolio">Portfolio</button>
-    <button class="tab-btn" data-tab="about">About</button>
-    <span class="tab-indicator" id="tab-indicator"></span>
-  </nav>
+    <nav class="tabs" id="tabs">
+      <button class="tab-btn active" data-tab="portfolio">Portfolio</button>
+      <button class="tab-btn" data-tab="about">About</button>
+      <span class="tab-indicator" id="tab-indicator"></span>
+    </nav>
+  </div>
 </header>
 
 <main>
