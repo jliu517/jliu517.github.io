@@ -184,14 +184,53 @@
 
   @media (max-width: 560px) {
     .gallery { grid-template-columns: 1fr; }
-    header { padding-top: 40px; }
+    header { padding-top: 24px; padding-bottom: 24px; }
+
     .header-inner {
-      flex-direction: column;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "left tabs"
+        "left right";
+      align-items: center;
+      row-gap: 10px;
+      column-gap: 12px;
+    }
+
+    .header-left {
+      grid-area: left;
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    nav.tabs {
+      grid-area: tabs;
+      justify-content: flex-end;
       gap: 16px;
     }
-    .header-left, .header-right {
-      text-align: center;
+
+    .header-right {
+      grid-area: right;
+      align-self: start;
+      text-align: right;
+      margin-bottom: 0;
+      white-space: normal;
+    }
+
+    h1.name {
+      font-size: 24px;
+    }
+
+    .tagline {
+      font-size: 11px;
+    }
+
+    nav.tabs button {
+      font-size: 12px;
+    }
+
+    .header-right {
+      font-size: 11px;
     }
   }
 
