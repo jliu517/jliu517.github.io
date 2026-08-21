@@ -46,7 +46,26 @@
   .header-inner {
     max-width: 1800px;
     margin: 0 auto;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .header-left {
+    text-align: left;
+  }
+
+  .header-right {
+    font-family: "Cheltenham Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    color: var(--paper);
+    text-align: right;
+    font-size: 15px;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 
   h1.name {
@@ -67,7 +86,7 @@
     color: #aaaaaa;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin: 0 0 40px 0;
+    margin: 0;
   }
 
   /* ---------- Tabs ---------- */
@@ -159,6 +178,14 @@
   @media (max-width: 560px) {
     .gallery { grid-template-columns: 1fr; }
     header { padding-top: 40px; }
+    .header-inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+    }
+    .header-left, .header-right {
+      text-align: center;
+    }
   }
 
   /* ---------- About ---------- */
@@ -218,14 +245,18 @@
 
 <header>
   <div class="header-inner">
-    <h1 class="name">Jon Liu</h1>
-    <p class="tagline">Photography</p>
+    <div class="header-left">
+      <h1 class="name">Jon Liu</h1>
+      <p class="tagline">Photography</p>
+    </div>
 
     <nav class="tabs" id="tabs">
       <button class="tab-btn active" data-tab="portfolio">Portfolio</button>
       <button class="tab-btn" data-tab="about">About</button>
       <span class="tab-indicator" id="tab-indicator"></span>
     </nav>
+
+    <div class="header-right">ARE YOU LIVING IN THE<br>REAL WORLD?</div>
   </div>
 </header>
 
