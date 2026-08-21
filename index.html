@@ -23,6 +23,10 @@
 
   * { box-sizing: border-box; }
 
+  html {
+    background: var(--ink);
+  }
+
   html, body {
     margin: 0;
     padding: 0;
@@ -36,7 +40,7 @@
 
   header {
     background: var(--ink);
-    padding: 56px 40px 0 40px;
+    padding: 56px 40px 40px 40px;
   }
 
   .header-inner {
@@ -73,7 +77,6 @@
     justify-content: center;
     gap: 32px;
     position: relative;
-    padding-bottom: 32px;
   }
 
   nav.tabs button {
@@ -86,7 +89,7 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #999999;
-    padding: 0 0 16px 0;
+    padding: 0 0 8px 0;
     cursor: pointer;
     transition: color 0.2s ease;
   }
@@ -101,7 +104,7 @@
 
   .tab-indicator {
     position: absolute;
-    bottom: 16px;
+    bottom: 0;
     height: 2px;
     background: var(--paper);
     transition: left 0.3s cubic-bezier(0.65, 0, 0.35, 1), width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
